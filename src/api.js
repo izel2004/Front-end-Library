@@ -1,8 +1,8 @@
 import axios from "axios";
 
-// Use local backend in development, Vercel in production
+// Use local backend in development, deployed backend in production
 const BASE_URL = process.env.NODE_ENV === "production"
-  ? "https://library-eight-liart.vercel.app/api" // your Vercel backend
+  ? "https://library-eight-liart.vercel.app/api" // deployed backend
   : "http://localhost:3000/api";                 // local backend
 
 // Books
@@ -21,7 +21,6 @@ export const deleteMember = (id) => axios.delete(`${BASE_URL}/members/${id}`);
 export const getLoans = () => axios.get(`${BASE_URL}/loans`);
 export const addLoan = (data) => axios.post(`${BASE_URL}/loans`, data);
 export const returnLoan = (id) => axios.put(`${BASE_URL}/loans/return/${id}`);
-export const deleteLoan = (id) => axios.delete(`${BASE_URL}/loans/${id}`); // <-- add this
-
+export const deleteLoan = (id) => axios.delete(`${BASE_URL}/loans/${id}`);
 
 
